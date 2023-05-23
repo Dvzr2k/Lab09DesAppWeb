@@ -1,0 +1,29 @@
+<form [formGroup]="contactoForm" (ngSubmit)="enviarFormulario()">
+    <div>
+      <label for="nombre">Nombre:</label>
+      <input type="text" id="nombre" formControlName="nombre">
+      <div *ngIf="contactoForm.get('nombre')?.invalid && (contactoForm.get('nombre')?.dirty || formularioEnviado)">
+        <div *ngIf="contactoForm.get('nombre')?.errors?.['required']">El nombre es obligatorio.</div>
+      </div>
+    </div>
+  
+    <div>
+      <label for="email">Email:</label>
+      <input type="email" id="email" formControlName="email">
+      <div *ngIf="contactoForm.get('email')?.invalid && (contactoForm.get('email')?.dirty || formularioEnviado)">
+        <div *ngIf="contactoForm.get('email')?.errors?.['required']">El email es obligatorio.</div>
+        <div *ngIf="contactoForm.get('email')?.errors?.['email']">El email no es válido.</div>
+      </div>
+    </div>
+  
+    <div>
+      <label for="mensaje">Mensaje:</label>
+      <textarea id="mensaje" formControlName="mensaje"></textarea>
+      <div *ngIf="contactoForm.get('mensaje')?.invalid && (contactoForm.get('mensaje')?.dirty || formularioEnviado)">
+        <div *ngIf="contactoForm.get('mensaje')?.errors?.['required']">El mensaje es obligatorio.</div>
+      </div>
+    </div>
+  
+    <button type="submit">Enviar</button>
+  </form>
+  
