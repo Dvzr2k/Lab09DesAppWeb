@@ -1,0 +1,11 @@
+h1 {
+    text-align: center;
+}
+
+.col {
+    width: 100px;
+    height: 100px;
+    background-color: rgb(103, 161, 214);
+    color: white;
+    text-align: center;
+}
